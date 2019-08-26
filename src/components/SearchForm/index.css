@@ -1,0 +1,21 @@
+.row {
+  margin-top: 100px;
+}
+
+.search-form {
+  padding: 0px;
+  margin-top: 0px;
+  align-items: center;
+
+
+}
+
+
+
+.search-btn {
+  margin-top: 15px;
+  height: 50px;
+  width: 150px;
+  align-items: center;
+
+}

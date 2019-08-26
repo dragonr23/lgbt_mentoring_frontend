@@ -1,0 +1,18 @@
+.card-subtitle {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.card-img {
+  padding: 5px;
+}
+
+.card-title {
+  padding: 5px;
+}
+
+.messages {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+}
