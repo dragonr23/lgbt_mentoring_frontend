@@ -60,6 +60,9 @@ getMentors = async(e) => {
 
 }
 
+
+
+
   render() {
     return (
       <div className="container">
@@ -74,7 +77,7 @@ getMentors = async(e) => {
             {/* TODO: Add event table*/}
             <SearchTable
             data = {this.state.data}
-            mentors={this.state.mentors}/>
+            mentors={this.state.mentors} handleMessage={this.handleMessage}/>
             </div>
           </div>
       </div>

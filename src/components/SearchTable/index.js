@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 import './index.css';
@@ -33,8 +34,8 @@ function SearchTable(props) {
                     <td>{mentor.sexuality}</td>
                     <td>{mentor.gender}</td>
                     <td>{mentor.religion}</td>
-                    <td><button
-                    className="btn btn-info" onClick={()=> alert('Sending Message')}>Start Chat</button></td>
+                    <td> <a href="Message" onClick={()=> localStorage.setItem("reciever", mentor.username)}> <button
+                    className="btn btn-info" >Start Chat</button></a></td>
 
                   </tr>
                   )

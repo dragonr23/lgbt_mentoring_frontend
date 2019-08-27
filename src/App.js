@@ -9,6 +9,7 @@ import Groups from './views/Groups';
 import Login from './views/Login';
 import Logout from './views/Logout';
 import Register from './views/Register';
+import Message from './views/Message';
 import Footer from './components/footer';
 import Header from './components/header';
 
@@ -31,10 +32,10 @@ handleLogin = async(e) => {
   let email = e.target.elements.email.value
   let password  = e.target.elements.pass.value
 
-  const URL = 'https://lgbt-mentors-backend.herokuapp.com/authenticate/login';
+  const URL = 'http://127.0.0.1:5000/authenticate/login';
 
   let token = jwt.sign(
-    { 'email': email, 'password':password },
+    { 'email': email, 'password':password},
     SECRET_KEY,
     {expiresIn: '1h'}
   );
@@ -43,18 +44,22 @@ handleLogin = async(e) => {
 
     'headers': {
       'Content-Type': 'application/json',
-      'token': token
+      'token': token,
+
     }
   });
 
   let data = await response.json()
 
+  console.log(data);
+
   //setup message saying logged in the water is fine or error
 
   if (data.message == 'success') {
-    this.setState({ 'logged_in' : true , 'token': data.token, });
+    this.setState({ 'logged_in' : true , 'token': data.token });
 
     localStorage.setItem('token', data.token);
+    localStorage.setItem('username', data.username)
 
     alert('You are now logged in. The water is fine.')
   } else {
@@ -112,6 +117,13 @@ handleRegister = async(e) => {
   }
 }
 
+handleMessage = async(e) => {
+    e.preventDefault();
+
+    alert('handle message has been handled')
+
+}
+
   render(){
     return (
       <div className="App">
@@ -133,6 +145,7 @@ handleRegister = async(e) => {
             <Route exact path='/Login' render={() => <Login handleLogin={this.handleLogin}/>}/>
             <Route exact path='/Register' render={() => <Register handleRegister={this.handleRegister}/>}/>
             <Route exact path='/Logout' render={() => <Logout />}/>
+            <Route exact path='/Message' render={() => <Message username={this.state.username} />}/>
 
           </Switch>
         </div>
