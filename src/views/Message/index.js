@@ -37,7 +37,12 @@ class Message extends Component {
     member.id = this.drone.clientId;
     this.setState({member});
   });
-  const room = this.drone.subscribe("observable-room");
+
+  let username = localStorage.getItem('username')
+  let reciever = localStorage.getItem('reciever')
+
+  let chatroom = 'observable-'+username+reciever
+  const room = this.drone.subscribe(chatroom);
   room.on('data', (data, member) => {
     const messages = this.state.messages;
     messages.push({member, text: data});
@@ -86,8 +91,12 @@ class Message extends Component {
 }
 
 onSendMessage = (message) => {
+  let username = localStorage.getItem('username')
+  let reciever = localStorage.getItem('reciever')
+
+  let chatroom = 'observable-'+username+reciever
   this.drone.publish({
-    room: "observable-room",
+    room: chatroom,
     message
   });
 }
