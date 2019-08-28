@@ -1,30 +1,39 @@
 import React, { Component } from 'react';
 import './index.css';
 
-class Inbox extends Component {
+function Inbox(props) {
+  console.log(props.rooms)
 
-  render() {
+
     return (
       <div className="row">
         <div className="col-md-12">
 
-          <div className="card">
+          {props.rooms &&
+            props.rooms.map( room =>
 
-            <div className="card-title message-title">Lost In Detroit</div>
-            <div className="card-subtitle message-subtitle">January 18, 2019</div>
-            <div class="card-text message_text">
-              <p> Hi Test! I wanted to reachout with you and see if you would be willing to share your experieces.</p>
+            <a href="/">
+              <div className="card chatcards">
+
+                <div className="card-title message-title">A Chat Between {room.user1} and {room.user2}</div>
+                <div class="card-text message_text">
+                  <p> Send A Message </p>
 
 
-            </div>
-          </div>
+                </div>
+              </div>
+            </a>
+          )
+        }
+
+
 
         </div> {/* this is the end of column2*/}
       </div>
 
 
     );
-  }
+
 }
 
 export default Inbox;

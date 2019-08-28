@@ -14,9 +14,9 @@ class Message extends Component {
 
   this.state = {
 
-    'username': '',
-    'reciever': '',
-    'chatroom': '',
+    username : '',
+    reciever: '',
+    chatroom: '',
     messages: [],
     member: {
       username: '',
@@ -50,27 +50,58 @@ class Message extends Component {
   });
 }
 
+componentWillMount() {
+  // get username from local storage
+
+  let username = localStorage.getItem('username')
+  let reciever = localStorage.getItem('reciever')
+  let member = this.state.member
+
+  member[username] = username
+
+  let chatroom = 'observable-'+username+reciever
+
+  this.setState({ username })
+  this.setState({ reciever })
+  this.setState({ chatroom })
+  this.setState({ member })
+
+  this.saveRoom()
+}
+
+saveRoom = async() => {
 
 
+  let room = 'observable-'+localStorage.getItem('username')+localStorage.getItem('reciever');
+  let user1 = localStorage.getItem('username');
+  let user2 = localStorage.getItem('reciever');
+  let URL = 'http://localhost:5000/api/saveroom';
 
-
-
-  componentWillMount() {
-    // get username from local storage
-
-    let username = localStorage.getItem('username')
-    let reciever = localStorage.getItem('reciever')
-    let member = this.state.member
-
-    member[username] = username
-
-    let chatroom = username + reciever
-
-    this.setState({ username })
-    this.setState({ reciever })
-    this.setState({ chatroom })
-    this.setState({ member })
+  let response = await fetch(URL, {
+    "method": "POST",
+    "headers": {
+    'Content-Type': "application/json",
+    "Room": room,
+    "User1": user1,
+    "User2": user2,
   }
+
+  });
+
+  let data = await response.json()
+
+  if (data.success) {
+    alert(`${data.success}`);
+  } else if (data.error) {
+    alert(`${data.error}`);
+  } else {
+       alert('Try again sorry!')
+     }
+
+   }
+
+
+
 
 
   render() {
@@ -99,7 +130,9 @@ onSendMessage = (message) => {
     room: chatroom,
     message
   });
+
 }
+
 
 }
 export default Message;

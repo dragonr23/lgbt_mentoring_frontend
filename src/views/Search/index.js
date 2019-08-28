@@ -22,11 +22,11 @@ getMentors = async(e) => {
 
 
   let username = e.target.elements.username.value;
-  // let email = e.target.elements.email.value;
+
   let zipcode = e.target.elements.zipcode.value;
   let sexuality = e.target.elements.sexuality.value;
   let gender = e.target.elements.gender.value;
-  // let religion = e.target.elements.year.value;
+  let religion = e.target.elements.religion.value;
 
 
   let URL = 'https://lgbt-mentors-backend.herokuapp.com/api/retrieve';
@@ -43,7 +43,7 @@ getMentors = async(e) => {
     "Sexuality":sexuality,
 
     "Gender": gender,
-    // "Religion": religion,
+    "Religion": religion,
 
   }
 
