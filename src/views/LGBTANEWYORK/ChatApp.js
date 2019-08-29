@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
-import Input from '../Input';
-import MessageList from '../MessageList';
+import Input from '../../components/Input';
+import MessageList from '../../components/MessageList';
 
 class ChatApp extends Component {
   constructor(props) {
@@ -16,10 +16,10 @@ class ChatApp extends Component {
 }
 componentDidMount() {
     const chatManager = new ChatManager({
-        instanceLocator: "v1:us1:3aadf12f-272c-4449-851e-697d3b33c60f",
+        instanceLocator: "v1:us1:6beab50a-161f-4fb6-9a10-fa1b479696c1",
         userId: this.props.currentId,
         tokenProvider: new TokenProvider({
-            url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/3aadf12f-272c-4449-851e-697d3b33c60f/token"
+            url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/6beab50a-161f-4fb6-9a10-fa1b479696c1/token"
         })
     })
 
@@ -28,7 +28,7 @@ componentDidMount() {
       .then(currentUser => {
           this.setState({ currentUser: currentUser })
           return currentUser.subscribeToRoom({
-              roomId: "2c424b8e-5bf9-45a8-8b6b-85a91858865c",
+              roomId: "9553ecee-d51f-47f4-9c6f-e9f38afad85e",
               messageLimit: 100,
               hooks: {
                   onMessage: message => {

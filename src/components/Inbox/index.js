@@ -4,6 +4,9 @@ import './index.css';
 function Inbox(props) {
   console.log(props.rooms)
 
+  // localStorage.setItem("oldreciever", props.room)
+
+
 
     return (
       <div className="row">
@@ -12,12 +15,14 @@ function Inbox(props) {
           {props.rooms &&
             props.rooms.map( room =>
 
-            <a href="/">
+
+
+            <a href="/OldMessage" onClick={()=> localStorage.setItem('observableroom', room.room)}>
               <div className="card chatcards">
 
                 <div className="card-title message-title">A Chat Between {room.user1} and {room.user2}</div>
                 <div class="card-text message_text">
-                  <p> Send A Message </p>
+                  <p> Send A Message</p>
 
 
                 </div>

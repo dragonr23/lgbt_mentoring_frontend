@@ -1,74 +1,85 @@
 import React, { Component } from 'react';
-import ChatMessage from '../../components/ChatMessage';
-import Signup from '../../components/Signup';
-import ChatApp from '../../components/ChatApp';
 import './index.css';
-
-import { default as Chatkit } from '@pusher/chatkit-server';
-
-const chatkit = new Chatkit({
-  instanceLocator: "v1:us1:3aadf12f-272c-4449-851e-697d3b33c60f",
-  key: "562db7bf-6e3a-48e4-a3b9-ed4445631342:Odoghs7l34e5Q/ViztIBlF7oLxZ985hKNWVgB2mm9Zo="
-})
-
+import Inbox from '../../components/Inbox'
 
 class Groups extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          currentUsername: '',
-          currentId: '',
-          currentView: 'signup'
-      }
-      this.changeView = this.changeView.bind(this);
-      this.createUser = this.createUser.bind(this);
-  }
 
-  createUser(username) {
-      chatkit.createUser({
-          id: username,
-          name: username,
-      })
-      .then((currentUser) => {
-          this.setState({
-              currentUsername: username,
-              currentId: username,
-              currentView: 'chatApp'
-          })
-      }).catch((err) => {
-               if(err.status === 400) {
-              this.setState({
-                  currentUsername: username,
-                  currentId: username,
-                  currentView: 'chatApp'
-              })
-          } else {
-              console.log(err.status);
-          }
-      });
-  }
+  constructor() {
+  super();
 
-changeView(view) {
-    this.setState({
-        currentView: view
-    })
+  this.state = {
+
+
+
+  }
 }
 
-render() {
-      let view ='';
 
-      if (this.state.currentView === "ChatMessage") {
-          view = <ChatMessage  changeView={this.changeView}/>
-      } else if (this.state.currentView === "signup") {
-          view = <Signup onSubmit={this.createUser}/>
-      } else if (this.state.currentView === "chatApp") {
-          view = <ChatApp currentId={this.state.currentId} />
-      }
-      return (
-          <div className="App">
-              {view}
+
+componentWillMount() {
+
+
+}
+
+  render() {
+    return(
+
+      <div className="container">
+        <h1>Join A Group</h1>
+
+        <div className="col-md-8 offset-md-2">
+          <div className="row">
+
+
+            <div className="col-md-3">
+
+            <a href="/LGBTANEWYORK"><div className="card">
+              <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
+              <div className="card-title"><b>LGTBA+ New York</b></div>
+            </div></a>
+            </div>
+
+
+            <div className="col-md-3">
+            <a href="/TRANSRIGHTS"><div className="card">
+              <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
+              <div className="card-title"><b>Trans Rights</b></div>
+            </div></a>
+            </div>
+
+
+            <div className="col-md-3">
+            <a href="/FLANNELMEETUP"><div className="card">
+              <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
+              <div className="card-title"><b>Boston Flannel Meetup</b></div>
+            </div></a>
+            </div>
+
+
           </div>
-      );
+          <div className="row">
+
+
+            <div className="col-md-3">
+
+            <a href="/PRIDE"><div className="card">
+              <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
+              <div className="card-title"><b>Pride</b></div>
+            </div></a>
+            </div>
+
+
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+  );
+
   }
 }
+
 export default Groups;

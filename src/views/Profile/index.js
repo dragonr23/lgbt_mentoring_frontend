@@ -33,6 +33,11 @@ getRoom = async() => {
     }
   });
 
+function oldMessage(item1, item2) {
+  localStorage.setItem('oldreciever', item1)
+  localStorage.setItem('observableroom', item2)
+}
+
   let rooms = await response.json()
   rooms = rooms.rooms;
   this.setState({ rooms : rooms })
@@ -131,7 +136,7 @@ componentWillMount() {
 
             <h1 className="card messages">Messages</h1>
 
-            <Inbox rooms = {this.state.rooms}/>
+            <Inbox rooms = {this.state.rooms} oldMessage={this.old}/>
 
           </div> {/* this is the end of column2*/}
 

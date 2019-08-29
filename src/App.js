@@ -12,6 +12,11 @@ import Register from './views/Register';
 import Message from './views/Message';
 import Footer from './components/footer';
 import Header from './components/header';
+import OldMessage from './views/OldMessage';
+import LGBTANEWYORK from './views/LGBTANEWYORK';
+import TRANSRIGHTS from './views/TRANSRIGHTS';
+import FLANNELMEETUP from './views/FLANNELMEETUP';
+import PRIDE from './views/PRIDE';
 
 let jwt = require('jsonwebtoken')
 
@@ -131,6 +136,8 @@ handleMessage = async(e) => {
 
         <div className="container">
           <Switch>
+
+
             <Route exact path='/' render={() => <Home />}/>
 
 
@@ -146,6 +153,11 @@ handleMessage = async(e) => {
             <Route exact path='/Register' render={() => <Register handleRegister={this.handleRegister}/>}/>
             <Route exact path='/Logout' render={() => <Logout />}/>
             <Route exact path='/Message' render={() => <Message username={this.state.username} />}/>
+            <Route exact path='/OldMessage' render={() => <OldMessage username={this.state.username} />}/>
+            <Route exact path='/LGBTANEWYORK' render={() => <LGBTANEWYORK />}/>
+            <Route exact path='/TRANSRIGHTS' render={() => <TRANSRIGHTS />}/>
+            <Route exact path='/FLANNELMEETUP' render={() => <FLANNELMEETUP />}/>
+            <Route exact path='/PRIDE' render={() => <PRIDE />}/>
 
           </Switch>
         </div>
