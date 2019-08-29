@@ -22,6 +22,7 @@
   padding-left: 0;
   flex-grow: 1;
   overflow: auto;
+  
 }
 
 .Messages-message {
@@ -72,7 +73,7 @@
   background-color: orangered;
 }
 
-form {
+.input-form {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -80,7 +81,7 @@ form {
   margin: 0 auto 40px;
 }
 
-input {
+.message-input {
   padding: 5px;
   font-size: 16px;
   border-radius: 8px;
@@ -88,7 +89,7 @@ input {
   flex-grow: 1;
 }
 
-button {
+.message-button {
   padding: 5px 10px;
   font-size: 16px;
   background-color: orangered;

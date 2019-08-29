@@ -91,7 +91,7 @@ saveRoom = async() => {
   let data = await response.json()
 
   if (data.success) {
-    alert(`${data.success}`);
+    console.log('YAS DEVELOPER');;
   } else if (data.error) {
     alert(`${data.error}`);
   } else {

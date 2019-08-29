@@ -24,7 +24,7 @@ class Messages extends Component {
       "Messages-message currentMember" : "Messages-message";
 
 
-    console.log(member.clientData.color)
+
     return (
       <li className={className}>
       <span

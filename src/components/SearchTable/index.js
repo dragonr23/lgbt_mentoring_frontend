@@ -15,7 +15,7 @@ function SearchTable(props) {
               <thead>
                 <tr>
                   <th>Username</th>
-                  <th>Zipcode</th>
+                  <th>City</th>
                   <th>Sexuality</th>
                   <th>Gender</th>
                   <th>Religion</th>

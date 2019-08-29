@@ -13,7 +13,7 @@ function SearchForm(props) {
           <input type="text" className="form-control search-form" name="username" />
         </div>
         <div className="form-group col-md-2">
-          <label>Zipcode</label>
+          <label>City</label>
           <input type="number" className="form-control search-form" name="zipcode" />
         </div>
         <div className="form-group col-md-2">

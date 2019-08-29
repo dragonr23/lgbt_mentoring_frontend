@@ -33,12 +33,11 @@ class Header extends Component {
                   <NavLink className="nav-link" to="/Search">Find a Mentor</NavLink>
                 </li>
             }
-            {
-              this.props.logged_in &&
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/Groups">Groups</NavLink>
-                </li>
-            }
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Groups">Groups</NavLink>
+              </li>
+
 
           </ul>
           <ul className="navbar-nav ml-auto">

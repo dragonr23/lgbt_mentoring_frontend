@@ -11,7 +11,7 @@ class Register extends Component {
               <input className="form-control" type="text" name="email" placeholder="Email..." />
               <input className="form-control" type="text" name="username" placeholder="Username..." />
               <input className="form-control" type="password" name="password" placeholder="Password..." />
-              <input className="form-control" type="text" name="zipcode" placeholder="Zipcode..." />
+              <input className="form-control" type="text" name="zipcode" placeholder="City..." />
               <input className="form-control" type="text" name="sexuality" placeholder="Sexuality..." />
               <input className="form-control" type="text" name="gender" placeholder="Gender..." />
               <input className="form-control" type="text" name="religion" placeholder="Religion..." />

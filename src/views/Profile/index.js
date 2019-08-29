@@ -119,7 +119,7 @@ componentWillMount() {
 
                 <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
                 <div className="card-title"><b>{user.username}</b></div>
-                <div className="card-subtitle"> Zipcode: {user.zipcode} </div>
+                <div className="card-subtitle"> City: {user.zipcode} </div>
                 <div className="card-subtitle">Sexuality: {user.sexuality} </div>
                 <div className="card-subtitle">Gender: {user.gender}</div>
                 <div className="card-subtitle">Religion: {user.religion}</div>
