@@ -21,7 +21,8 @@ class Message extends Component {
     member: {
       username: '',
       color: randomColor(),
-    }
+    },
+    logged_in: false,
 
 
   }
@@ -36,6 +37,9 @@ class Message extends Component {
     const member = {...this.state.member};
     member.id = this.drone.clientId;
     this.setState({member});
+
+    console.log(member)
+    console.log(member.id)
   });
 
   let username = localStorage.getItem('username')
@@ -67,6 +71,11 @@ componentWillMount() {
   this.setState({ member })
 
   this.saveRoom()
+
+
+  localStorage.setItem('logged_in', true)
+  localStorage.getItem('logged_in')
+  this.props.handleMessage()
 }
 
 saveRoom = async() => {
@@ -105,6 +114,10 @@ saveRoom = async() => {
 
 
   render() {
+
+    localStorage.setItem('logged_in', true)
+
+
     return (
       <div className="App">
         <div className="App-header">

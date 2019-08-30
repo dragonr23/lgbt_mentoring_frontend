@@ -23,7 +23,9 @@ class OldMessage extends Component {
     member: {
       username: '',
       color: randomColor(),
-    }
+    },
+
+    logged_in: false,
 
 
   }
@@ -38,6 +40,7 @@ class OldMessage extends Component {
     const member = {...this.state.member};
     member.id = this.drone.clientId;
     this.setState({member});
+
   });
 
   let username = localStorage.getItem('username')
@@ -69,11 +72,20 @@ componentWillMount() {
   this.setState({ member })
 
 
+
+  localStorage.setItem('logged_in', true)
+  localStorage.getItem('logged_in')
+
+  this.props.handleMessage()
+
+
 }
 
 
 
   render() {
+    localStorage.setItem('logged_in', true)
+
     return (
       <div className="App">
         <div className="App-header">

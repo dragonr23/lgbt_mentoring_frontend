@@ -6,6 +6,10 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
   render(){
+
+    let message_logged_in = localStorage.getItem('logged_in')
+    console.log(message_logged_in, 'local storage');
+    console.log(this.props.logged_in, 'state storage');
     return (
       <div className="Header">
 
@@ -22,13 +26,13 @@ class Header extends Component {
             </li>
 
             {
-              this.props.logged_in &&
+              (this.props.logged_in === true || message_logged_in === 'true') &&
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/Profile">Profile</NavLink>
                 </li>
             }
             {
-              this.props.logged_in &&
+              (this.props.logged_in === true || message_logged_in === 'true') &&
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/Search">Find a Mentor</NavLink>
                 </li>
@@ -46,12 +50,17 @@ class Header extends Component {
             <NavLink className="nav-link" to="/Login">Login</NavLink>
           </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/Register">Register</NavLink>
-          </li>
+          {
+            (this.props.logged_in === false && message_logged_in === 'false') &&
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Register">Register</NavLink>
+              </li>
+
+          }
 
           {
-            this.props.logged_in &&
+            (this.props.logged_in === true || message_logged_in === 'true') &&
               <li className="nav-item">
                 <NavLink className="nav-link" to="/Logout">Logout</NavLink>
               </li>

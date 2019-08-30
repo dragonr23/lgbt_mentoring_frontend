@@ -122,10 +122,14 @@ handleRegister = async(e) => {
   }
 }
 
-handleMessage = async(e) => {
-    e.preventDefault();
+handleMessage = async() => {
 
-    alert('handle message has been handled')
+  this.setState({ 'logged_in' : true})
+}
+
+handleLogout = async() => {
+
+  this.setState({ 'logged_in' : false})
 
 }
 
@@ -151,9 +155,9 @@ handleMessage = async(e) => {
             <Route exact path='/Groups' render={() => <Groups />}/>
             <Route exact path='/Login' render={() => <Login handleLogin={this.handleLogin}/>}/>
             <Route exact path='/Register' render={() => <Register handleRegister={this.handleRegister}/>}/>
-            <Route exact path='/Logout' render={() => <Logout />}/>
-            <Route exact path='/Message' render={() => <Message username={this.state.username} />}/>
-            <Route exact path='/OldMessage' render={() => <OldMessage username={this.state.username} />}/>
+            <Route exact path='/Logout' render={() => <Logout handleLogout={this.handleLogout}/>}/>
+            <Route exact path='/Message' render={() => <Message handleMessage={this.handleMessage} username={this.state.username} />}/>
+            <Route exact path='/OldMessage' render={() => <OldMessage handleMessage={this.handleMessage}  username={this.state.username} />}/>
             <Route exact path='/LGBTANEWYORK' render={() => <LGBTANEWYORK />}/>
             <Route exact path='/TRANSRIGHTS' render={() => <TRANSRIGHTS />}/>
             <Route exact path='/FLANNELMEETUP' render={() => <FLANNELMEETUP />}/>
