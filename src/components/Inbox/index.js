@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import './index.css';
 
+
+function store(room, user2){
+  localStorage.setItem('observableroom', room)
+  localStorage.setItem('user2', user2)
+
+
+
+}
+
 function Inbox(props) {
   console.log(props.rooms)
 
@@ -17,7 +26,9 @@ function Inbox(props) {
 
 
 
-            <a href="/OldMessage" onClick={()=> localStorage.setItem('observableroom', room.room)}>
+            <a href="/OldMessage" onClick={()=> //localStorage.setItem('observableroom', room.room)
+            store(room.room, room.user2)
+            }>
               <div className="card chatcards">
 
                 <div className="card-title message-title">A Chat Between {room.user1} and {room.user2}</div>

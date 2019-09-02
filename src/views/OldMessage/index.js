@@ -64,7 +64,7 @@ componentWillMount() {
   // get username from local storage
 
   let username = localStorage.getItem('username')
-  let reciever = localStorage.getItem('oldreciever')
+  let reciever = localStorage.getItem('user2')
   let member = this.state.member
 
   this.state.member['username'] = username
