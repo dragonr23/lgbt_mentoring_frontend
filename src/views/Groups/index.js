@@ -27,7 +27,7 @@ componentWillMount() {
       <div className="container">
         <h1>Join A Group</h1>
 
-        <div className="col-md-8 offset-md-2">
+        <div className="col-md-10 offset-md-1">
           <div className="row">
 
 

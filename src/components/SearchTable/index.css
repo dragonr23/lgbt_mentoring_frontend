@@ -1,0 +1,12 @@
+.table-row .table-data {
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+
+}
+
+.full-span {
+  width: 100%;
+  padding: 0px;
+}

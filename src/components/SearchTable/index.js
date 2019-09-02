@@ -9,7 +9,7 @@ function SearchTable(props) {
     return (
 
       <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 full-span">
 
             <table className="table-dark table">
               <thead>
@@ -28,13 +28,13 @@ function SearchTable(props) {
                 {props.data &&
                   props.data.map( mentor =>
 
-                  <tr>
-                    <td>{mentor.username}</td>
-                    <td>{mentor.zipcode}</td>
-                    <td>{mentor.sexuality}</td>
-                    <td>{mentor.gender}</td>
-                    <td>{mentor.religion}</td>
-                    <td> <a href="Message" onClick={()=> localStorage.setItem("reciever", mentor.username)}> <button
+                  <tr className="table-row">
+                    <td className="table-data">{mentor.username}</td>
+                    <td className="table-data">{mentor.zipcode}</td>
+                    <td className="table-data">{mentor.sexuality}</td>
+                    <td className="table-data">{mentor.gender}</td>
+                    <td className="table-data">{mentor.religion}</td>
+                    <td className="table-data"> <a href="Message" onClick={()=> localStorage.setItem("reciever", mentor.username)}> <button
                     className="btn btn-info" >Start Chat</button></a></td>
 
                   </tr>
