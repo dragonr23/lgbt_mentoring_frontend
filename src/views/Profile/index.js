@@ -75,7 +75,7 @@ getMentors = async() => {
 
 
 
-  let URL = 'https://lgbt-mentors-backend.herokuapp.com/api/retrieve';
+  let URL = 'http://127.0.0.1:5000/api/retrieve';
 
   console.log(URL);
 

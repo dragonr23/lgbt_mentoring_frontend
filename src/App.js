@@ -84,7 +84,7 @@ handleRegister = async(e) => {
   let religion = e.target.elements.religion.value
 
 
-  const URL = 'https://lgbt-mentors-backend.herokuapp.com/authenticate/register';
+  const URL = 'http://127.0.0.1:5000/authenticate/register';
 
   // encrypt a token with the proper payload info to send to our api
 
@@ -101,6 +101,8 @@ handleRegister = async(e) => {
     SECRET_KEY,
     {expiresIn: '1h'}
   );
+
+  console.log(token);
 
   // send the token to register the user_id
   let response = await fetch(URL, {

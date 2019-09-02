@@ -2,11 +2,6 @@ import {Component} from "react";
 import React from "react";
 
 class Messages extends Component {
-
-
-
-
-
   render() {
     const {messages} = this.props;
     return (
@@ -17,23 +12,23 @@ class Messages extends Component {
   }
 
   renderMessage(message) {
+
     const {member, text} = message;
     const {currentMember} = this.props;
-    const messageFromMe = member.id === currentMember.id;
+    console.log('CURRENT MEMBER',currentMember)
+    // const messageFromMe = member.id === currentMember.id;
+    const messageFromMe = localStorage.getItem('username') === member.clientData.username;
     const className = messageFromMe ?
       "Messages-message currentMember" : "Messages-message";
-
-
-
     return (
       <li className={className}>
       <span
         className="avatar"
-        // style={{backgroundColor: }}
+
       />
         <div className="Message-content">
           <div className="username">
-
+            
           </div>
           <div className="text">{text}</div>
         </div>

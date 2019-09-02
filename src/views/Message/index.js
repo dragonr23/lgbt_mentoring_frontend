@@ -12,6 +12,8 @@ class Message extends Component {
   constructor(props) {
   super(props);
 
+  this.names = [];
+
   this.state = {
 
     username : '',
@@ -23,9 +25,15 @@ class Message extends Component {
       color: randomColor(),
     },
     logged_in: false,
+    displayname: '',
+
 
 
   }
+
+
+
+
 
   this.drone = new window.Scaledrone("RMFekT0a3dimleu7", {
     data: this.state.member
@@ -61,7 +69,7 @@ componentWillMount() {
   let reciever = localStorage.getItem('reciever')
   let member = this.state.member
 
-  member[username] = username
+  this.state.member['username'] = username
 
   let chatroom = 'observable-'+username+reciever
 
@@ -117,6 +125,11 @@ saveRoom = async() => {
 
     localStorage.setItem('logged_in', true)
 
+    console.log(this.state.messages);
+
+    console.log('MEMBER',this.state.member)
+
+
 
     return (
       <div className="App">
@@ -126,6 +139,7 @@ saveRoom = async() => {
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
+          username = {this.state.username}
         />
         <Input
           onSendMessage={this.onSendMessage}
@@ -143,6 +157,22 @@ onSendMessage = (message) => {
     room: chatroom,
     message
   });
+
+  let displayname = localStorage.getItem('username')
+
+  this.setState({displayname})
+
+
+
+  console.log(displayname);
+
+  // names.append(displayname)
+  //
+  // console.log(names);
+
+  this.names.push(displayname)
+
+  console.log('NAMES', this.names);
 
 }
 

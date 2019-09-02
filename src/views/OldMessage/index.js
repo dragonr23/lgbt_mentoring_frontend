@@ -14,6 +14,10 @@ class OldMessage extends Component {
   constructor(props) {
   super(props);
 
+  this.names = [];
+
+
+
   this.state = {
 
     username : '',
@@ -26,6 +30,7 @@ class OldMessage extends Component {
     },
 
     logged_in: false,
+    displayname: '',
 
 
   }
@@ -62,7 +67,7 @@ componentWillMount() {
   let reciever = localStorage.getItem('oldreciever')
   let member = this.state.member
 
-  member[username] = username
+  this.state.member['username'] = username
 
   let chatroom = localStorage.getItem('observableroom')
 
@@ -85,6 +90,7 @@ componentWillMount() {
 
   render() {
     localStorage.setItem('logged_in', true)
+    console.log(this.props.displayname);
 
     return (
       <div className="App">
@@ -94,6 +100,8 @@ componentWillMount() {
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
+          username = {this.state.username}
+          displayname = {this.state.displayname}
         />
         <Input
           onSendMessage={this.onSendMessage}
@@ -111,6 +119,17 @@ onSendMessage = (message) => {
     room: chatroom,
     message
   });
+
+  let displayname = localStorage.getItem('username')
+
+  this.setState({displayname})
+
+  console.log(displayname);
+
+  this.names.push(displayname)
+
+  console.log('NAMES', this.names);
+  console.log(this.state.messages);
 
 }
 
