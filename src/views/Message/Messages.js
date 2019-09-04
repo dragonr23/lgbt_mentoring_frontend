@@ -17,7 +17,7 @@ class Messages extends Component {
     const {currentMember} = this.props;
     console.log('CURRENT MEMBER',currentMember)
     // const messageFromMe = member.id === currentMember.id;
-    const messageFromMe = localStorage.getItem('username') === member.clientData.username;
+    const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe ?
       "Messages-message currentMember" : "Messages-message";
     return (
@@ -28,7 +28,7 @@ class Messages extends Component {
       />
         <div className="Message-content">
           <div className="username">
-            
+
           </div>
           <div className="text">{text}</div>
         </div>

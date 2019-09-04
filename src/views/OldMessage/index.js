@@ -90,7 +90,7 @@ componentWillMount() {
 
   render() {
     localStorage.setItem('logged_in', true)
-    console.log(this.props.displayname);
+    
 
     return (
       <div className="App">
@@ -111,6 +111,8 @@ componentWillMount() {
 }
 
 onSendMessage = (message) => {
+
+  console.log('LOGGING MESSAGE SEND MESSAGE FUNCTION', message);
   let username = localStorage.getItem('username')
   let reciever = localStorage.getItem('reciever')
 

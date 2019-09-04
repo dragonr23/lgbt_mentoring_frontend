@@ -33,7 +33,7 @@ componentWillMount() {
 
             <div className="col-md-3">
 
-            <a href="/LGBTANEWYORK"><div className="card">
+            <a href="/LGBTANEWYORK"><div className="card group-card">
               <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
               <div className="card-title"><b>LGTBA+ New York</b></div>
             </div></a>
@@ -41,7 +41,7 @@ componentWillMount() {
 
 
             <div className="col-md-3">
-            <a href="/TRANSRIGHTS"><div className="card">
+            <a href="/TRANSRIGHTS"><div className="card group-card">
               <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
               <div className="card-title"><b>Trans Rights</b></div>
             </div></a>
@@ -49,7 +49,7 @@ componentWillMount() {
 
 
             <div className="col-md-3">
-            <a href="/FLANNELMEETUP"><div className="card">
+            <a href="/FLANNELMEETUP"><div className="card group-card">
               <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
               <div className="card-title"><b>Boston Flannel Meetup</b></div>
             </div></a>
@@ -62,7 +62,7 @@ componentWillMount() {
 
             <div className="col-md-3">
 
-            <a href="/PRIDE"><div className="card">
+            <a href="/PRIDE"><div className="card group-card">
               <img src="http://placehold.it/250x250" alt="Placeholder" className="card-img"/>
               <div className="card-title"><b>Pride</b></div>
             </div></a>

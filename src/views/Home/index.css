@@ -8,3 +8,14 @@
   align-items: center;
 
 }
+
+.roundy {
+  border-radius: 15px;
+}
+
+.pcolor {
+  background: dodgerblue;
+  color: white;
+  padding: 10px;
+  width: 100%;
+}

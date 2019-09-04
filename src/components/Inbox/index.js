@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import './index.css';
 
 
-function store(room, user2){
+function store(room, user2, user1){
+
+  let username = localStorage.getItem('username')
   localStorage.setItem('observableroom', room)
-  localStorage.setItem('user2', user2)
+
+  if (username == user2) {
+    localStorage.setItem('user2', user1)
+  } else {
+      localStorage.setItem('user2', user2)
+  }
+
 
 
 
@@ -27,7 +35,7 @@ function Inbox(props) {
 
 
             <a href="/OldMessage" onClick={()=> //localStorage.setItem('observableroom', room.room)
-            store(room.room, room.user2)
+            store(room.room, room.user2, room.user1)
             }>
               <div className="card chatcards">
 
